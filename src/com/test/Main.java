@@ -58,12 +58,12 @@ public class Main {
             out.println("they'll spend time together");
         } else out.println("they will not spend time together");
 
-        if (((!humans[0].getSex() && humans[1].getSex()) || (!humans[1].getSex() && humans[0].getSex())) && (xx && yy && zz)) {
+        if (xx && yy && zz) {
             Human child;
             out.print("They have a relationship and a baby was born. ");
             child = humans[0].haveRelationships(humans[0], humans[1]);
+            if (child == null) out.println("nothing happened ... broke up");
         } else out.println("nothing happened ... broke up");
-
 /*        Human child1;
         if (!humans[0].getSex() && humans[1].getSex()) {
             Female females = (Female) humans[0];

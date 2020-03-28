@@ -28,6 +28,13 @@ public class Human {
         return height;
     }
 
+    public String getLastName() {
+        return lastName;
+    }
+
+    public float getWeight() {
+        return weight;
+    }
 
     @Override
     public String toString() {
@@ -79,18 +86,21 @@ public class Human {
 
 
     public Human haveRelationships(Human human1, Human human2) {
-        if (!human1.getSex()) {
-            return birth(human1);
+        if (human1.getSex() == human2.getSex()) {
+            return null;
+        } else if (!human1.getSex()) {
+            return birth(human1, human2);
         } else if (!human2.getSex()) {
-            return birth(human2);
+            return birth(human2, human1);
         }
         return null;
     }
 
-    public Human birth(Human human) {
-        Female females = (Female) human;
+    public Human birth(Human mam, Human dad) {
+        Female females = (Female) mam;
+        Male male = (Male) dad;
         Human child1;
-        child1 = females.giveBirth();
+        child1 = females.giveBirth(male);
         out.println(child1);
         return child1;
     }

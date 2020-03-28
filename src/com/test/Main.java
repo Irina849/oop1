@@ -43,9 +43,25 @@ public class Main {
 
         out.println(humans[0].toString());
         out.println(humans[1].toString());
-        boolean xx = humans[0].talk(x, y);
-        boolean yy = humans[0].enduring(x, y);
-        boolean zz = humans[0].spendTime(humans[0].getHeight(), humans[1].getHeight());
+        Human child = test(humans[0], humans[1]);
+
+/*        Human child1;
+        if (!humans[0].getSex() && humans[1].getSex()) {
+            Female females = (Female) humans[0];
+            child1 = females.giveBirth();
+            out.println(child1);
+        } else if (!humans[1].getSex() && humans[0].getSex()) {
+            Female females = (Female) humans[1];
+            child1 = females.giveBirth();
+            out.println(child1);
+        }*/
+
+    }
+
+    public static Human test(Human human1, Human human2) {
+        boolean xx = human1.talk(x, y);
+        boolean yy = human1.enduring(x, y);
+        boolean zz = human1.spendTime(human1.getHeight(), human2.getHeight());
         if (xx) {
             out.println("they'll talk");
         } else out.println("they will not talk");
@@ -61,20 +77,10 @@ public class Main {
         if (xx && yy && zz) {
             Human child;
             out.print("They have a relationship and a baby was born. ");
-            child = humans[0].haveRelationships(humans[0], humans[1]);
-            if (child == null) out.println("nothing happened ... broke up");
+            child = human1.haveRelationships(human2);
+            return child;
         } else out.println("nothing happened ... broke up");
-/*        Human child1;
-        if (!humans[0].getSex() && humans[1].getSex()) {
-            Female females = (Female) humans[0];
-            child1 = females.giveBirth();
-            out.println(child1);
-        } else if (!humans[1].getSex() && humans[0].getSex()) {
-            Female females = (Female) humans[1];
-            child1 = females.giveBirth();
-            out.println(child1);
-        }*/
-
+        return null;
     }
 }
 

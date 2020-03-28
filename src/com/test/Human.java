@@ -85,13 +85,14 @@ public class Human {
     }
 
 
-    public Human haveRelationships(Human human1, Human human2) {
-        if (human1.getSex() == human2.getSex()) {
+    public Human haveRelationships(Human human2) {
+        if (this.getSex() == human2.getSex()) {
+            out.println("nothing happened ... broke up");
             return null;
-        } else if (!human1.getSex()) {
-            return birth(human1, human2);
+        } else if (!this.getSex()) {
+            return birth(this, human2);
         } else if (!human2.getSex()) {
-            return birth(human2, human1);
+            return birth(human2, this);
         }
         return null;
     }
